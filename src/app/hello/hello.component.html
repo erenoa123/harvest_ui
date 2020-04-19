@@ -1,0 +1,9 @@
+<div id="body">
+<h1>{{title}}</h1>
+<p>{{message}}</p>
+<p [class] = "styleClass">{{message}}</p>
+<button (click) = "doClick()">Click</button>
+<input type="text" #field1
+(keyup) = "doType(field1.value)" />
+<p>{{today()}}</p>
+</div>

@@ -7,11 +7,16 @@ h1 {
     letter-spacing: -5pt;
     color: lightblue;
     position: absolute;
-    top: -70pt;
+    top: -50pt;
     right: 0pt;
 
 }
 
 p {
     font-size: 18pt;
+}
+
+.red{
+    color:white;
+    background-color: red;
 }
