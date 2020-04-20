@@ -16,6 +16,7 @@ export class HelloComponent implements OnInit {
   data:string[];
   switch:string;
   nowClass:any;
+  nowStyle:any;
 
   constructor() { 
     setInterval(
@@ -44,6 +45,11 @@ export class HelloComponent implements OnInit {
       'large':false,
       'frame':false
     };
+    this.nowStyle = {
+      'border-style':'',
+      'border-width':'',
+      'border-color':''
+    };
   }
 
   today(){
@@ -69,6 +75,12 @@ export class HelloComponent implements OnInit {
     this.nowClass.large = c2;
     this.nowClass.frame = c3;
 
+  }
+
+  checkNg(in1, in2, in3){
+    this.nowStyle['border-style'] = in1;
+    this.nowStyle['border-width'] = in2+"px";
+    this.nowStyle['border-color'] = in3;
   }
 
 }
