@@ -6,4 +6,38 @@
 <input type="text" #field1
 (keyup) = "doType(field1.value)" />
 <p>{{today()}}</p>
+
+<p *ngIf="visible" (click) = "doClick()" class = "red">This is true message</p>
+<p *ngIf="visible==false" (click) = "doClick()">This is false message</p>
+
+<ul>
+    <li *ngFor="let item of data">
+        {{item}}
+    </li>
+</ul>
+
+<div [ngSwitch]="switch">
+    <p *ngSwitchCase="'one'">First paragraph</p>
+    <p *ngSwitchCase="'two'">Second paragraph</p>
+    <p *ngSwitchCase="'three'">third paragraph</p>
+    <p *ngSwitchDefault>default paragraph</p>
+</div>
+
+<select #sel (change)="doSelect(sel.value)">
+    <option>one</option>
+    <option>two</option>
+    <option>three</option>
+</select>
+
+<p [style.font-size.pt] = count+36 [style.color]="'#F00'">{{message}}</p>
+<p [style.font-size.pt] = "28" [style.color]="'#F99'">{{message}}</p>
+<p [style.font-size.pt] = "20" [style.color]="'#Fcc'">{{message}}</p>
+
+<p [ngClass]="nowClass">ngClass:{{message}}</p>
+<input type="checkbox" #ck1
+ (change) = "check(ck1.checked, ck2.checked, ck3.checked);">Thin
+<input type="checkbox" #ck2
+ (change) = "check(ck1.checked, ck2.checked, ck3.checked);">Large
+<input type="checkbox" #ck3
+ (change) = "check(ck1.checked, ck2.checked, ck3.checked);">Frame
 </div>

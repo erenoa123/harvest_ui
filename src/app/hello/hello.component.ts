@@ -12,6 +12,10 @@ export class HelloComponent implements OnInit {
   styleClass:string;
   count:number;
   input:string;
+  visible:boolean;
+  data:string[];
+  switch:string;
+  nowClass:any;
 
   constructor() { 
     setInterval(
@@ -30,6 +34,16 @@ export class HelloComponent implements OnInit {
     this.message="this is My First Component!!";
     this.styleClass = 'red';
     this.count = 0;
+    this.data = [
+      '最初の要素',
+      '2番目の要素',
+      '最後の要素'
+    ];
+    this.nowClass = {
+      'thin':false,
+      'large':false,
+      'frame':false
+    };
   }
 
   today(){
@@ -37,12 +51,24 @@ export class HelloComponent implements OnInit {
   }
 
   doClick(){
+    this.visible = !this.visible;
     this.message = ++this.count + "回クリックしました。";
   }
 
   doType(val:string){
     this.input = val;
     this.message = 'you type: '+this.input;
+  }
+
+  doSelect(val:string){
+    this.switch = val;
+  }
+
+  check(c1,c2,c3){
+    this.nowClass.thin = c1;
+    this.nowClass.large = c2;
+    this.nowClass.frame = c3;
+
   }
 
 }
