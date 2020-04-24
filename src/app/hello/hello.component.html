@@ -46,5 +46,11 @@
 <input type ="text" #in2 (change)="checkNg(in1.value,in2.value,in3.value);"><br>
 <input type ="text" #in3 (change)="checkNg(in1.value,in2.value,in3.value);"><br>
 
+<p>Type: {{text1}}</p>
+<input type="text" [(ngModel)]="text1" />
+
+<p>Type: {{myControl.value}}</p>
+<input type="text" [formControl]="myControl" />
+
 
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-hello',
@@ -17,6 +18,8 @@ export class HelloComponent implements OnInit {
   switch:string;
   nowClass:any;
   nowStyle:any;
+  text1:string;
+  myControl:FormControl;
 
   constructor() { 
     setInterval(
@@ -50,6 +53,9 @@ export class HelloComponent implements OnInit {
       'border-width':'',
       'border-color':''
     };
+
+    this.text1 = "";
+    this.myControl = new FormControl('デフォルトメッセージ');
   }
 
   today(){
