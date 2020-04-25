@@ -4,11 +4,15 @@ import{FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloComponent
+    HelloComponent,
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -16,6 +20,6 @@ import { HelloComponent } from './hello/hello.component';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [HelloComponent]
+  bootstrap: [HelloComponent,SidebarComponent,NavbarComponent]
 })
 export class AppModule { }
