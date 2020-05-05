@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { EmbeddedTemplateAst } from '@angular/compiler';
+import { MessageComponent } from '../message/message.component';
+import { MycheckService } from '../mycheck.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hello',
@@ -20,8 +24,15 @@ export class HelloComponent implements OnInit {
   nowStyle:any;
   text1:string;
   myControl:FormControl;
+  message1:string[];
+  lastTarget:any;
+  lastColor:string;
+  input1:string;
+  @ViewChild(MessageComponent)
+  private msgCompornent:MessageComponent;
+  message2:string;
 
-  constructor() { 
+  constructor(private service:MycheckService, private route:ActivatedRoute) { 
     setInterval(
       ()=>{
         this.now = new Date();
@@ -56,6 +67,13 @@ export class HelloComponent implements OnInit {
 
     this.text1 = "";
     this.myControl = new FormControl('デフォルトメッセージ');
+
+    this.message1 = ['compornent','栗原','last message'];
+    this.input1='';
+    
+    console.log(this.service.hello());
+    this.message2 = 'param:'+JSON.stringify(this.route.snapshot.queryParamMap);
+
   }
 
   today(){
@@ -65,6 +83,19 @@ export class HelloComponent implements OnInit {
   doClick(){
     this.visible = !this.visible;
     this.message = ++this.count + "回クリックしました。";
+  }
+  
+  doClick1(event){
+    if(this.lastTarget != null){
+      this.lastTarget.style.color = this.lastColor;
+      this.lastTarget.style.backgroundColor = 'white';
+    }
+
+    this.lastTarget = event.target;
+    this.lastColor = event.target.style.color;
+    event.target.style.color = 'white';
+    event.target.style.backgroundColor = 'red';
+
   }
 
   doType(val:string){
@@ -88,5 +119,21 @@ export class HelloComponent implements OnInit {
     this.nowStyle['border-width'] = in2+"px";
     this.nowStyle['border-color'] = in3;
   }
+
+  push(){
+    if(this.input1 == ''){
+      alert('テキストを入力してください');
+      return;
+    }
+    console.log(this.msgCompornent);
+    this.msgCompornent.push(this.input1);
+    this.input1 = '';
+  }
+
+  pop(){
+    this.msgCompornent.pop();
+  }
+
+
 
 }

@@ -15,3 +15,21 @@ h1 {
 p {
     font-size: 18pt;
 }
+
+nav {
+    color: white;
+    margin: 0px;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: blueviolet;
+}
+nav a{ text-decoration: none;}
+nav a:link{color:white;}
+nav a:visited{color:white;}
+nav a:hover {color: lightcyan;}
+nav a:active {color:lightcyan;}
+
+div.content {
+    margin:10px;
+}

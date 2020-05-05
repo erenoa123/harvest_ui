@@ -51,4 +51,21 @@
 
 <p>Type: {{myControl.value}}</p>
 <input type="text" [formControl]="myControl" />
+
+<div>add item</div>
+<div>
+    {{input1}}
+    <input type = "text" [(ngModel)]="input1">
+    <button (click)="push()">push</button>
+    <button (click)="pop()">pop</button>
 </div>
+<app-message [content]="message1" (action) = "doClick1($event)"></app-message>
+
+<p appMystyle>this is my-style Directive!</p>
+<p appMystyle c="white" bg="red">this is my-style Directive!</p>
+
+<p>{{message2}}</p>
+<app-message></app-message>
+
+</div>
+
