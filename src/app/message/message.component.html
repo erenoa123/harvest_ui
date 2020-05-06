@@ -1,4 +1,22 @@
+<div style="margin: 10px;">
+    <p>{{message}}</p>
+    <input type="text" [formControl]="input">
+    <button (click)="doAction1()">click</button>
+</div>
 <div class="container">
+    <p class="message">{{getData()}}</p>
+    <table>
+        <tr>
+        <th>name</th>
+        <th>mail</th>
+        <th>tel</th>
+        </tr>
+        <tr *ngFor="let item of getList()">
+            <td>{{item.name}}</td>
+            <td>{{item.mail}}</td>
+            <td>{{item.tel}}</td>
+        </tr>
+    </table>
     <ul >
     <li class = "message" (mouseover)="doAction($event) "*ngFor="let item of content">{{item}}</li>
     </ul>

@@ -4,6 +4,11 @@ import { EmbeddedTemplateAst } from '@angular/compiler';
 import { MessageComponent } from '../message/message.component';
 import { MycheckService } from '../mycheck.service';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
+class MyData{
+  data:string;
+}
 
 @Component({
   selector: 'app-hello',
@@ -31,8 +36,9 @@ export class HelloComponent implements OnInit {
   @ViewChild(MessageComponent)
   private msgCompornent:MessageComponent;
   message2:string;
+  message3:string;
 
-  constructor(private service:MycheckService, private route:ActivatedRoute) { 
+  constructor(private service:MycheckService, private route:ActivatedRoute, private client:HttpClient) { 
     setInterval(
       ()=>{
         this.now = new Date();
@@ -74,6 +80,15 @@ export class HelloComponent implements OnInit {
     console.log(this.service.hello());
     this.message2 = 'param:'+JSON.stringify(this.route.snapshot.queryParamMap);
 
+    this.message3 = 'wait...';
+    setTimeout(()=>this.getData(),5000);
+
+  }
+
+  getData(){
+    this.client.get('/assets/data.json').subscribe((result:MyData) => {
+      this.message3 = 'data: ' + result.data;
+    })
   }
 
   today(){

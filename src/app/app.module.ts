@@ -11,6 +11,7 @@ import { MessageComponent } from './message/message.component';
 import { MystyleDirective } from './mystyle.directive';
 import { MycheckService } from './mycheck.service';
 import { from } from 'rxjs';
+import {HttpClientModule} from '@angular/common/http'
 
 const routes:Routes = [
   {path: 'hello', component: HelloComponent},
@@ -33,7 +34,8 @@ const routes:Routes = [
     RouterModule.forRoot(
       routes,
       {enableTracing: true}
-    )
+    ),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent,SidebarComponent,NavbarComponent]
