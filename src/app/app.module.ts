@@ -11,11 +11,13 @@ import { MessageComponent } from './message/message.component';
 import { MystyleDirective } from './mystyle.directive';
 import { MycheckService } from './mycheck.service';
 import { from } from 'rxjs';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { TodoComponent } from './todo/todo.component'
 
 const routes:Routes = [
   {path: 'hello', component: HelloComponent},
-  {path: 'msg/:id', component: MessageComponent}
+  {path: 'msg/:id', component: MessageComponent},
+  {path: 'todo', component: TodoComponent}
 ]
 
 @NgModule({
@@ -25,7 +27,8 @@ const routes:Routes = [
     SidebarComponent,
     NavbarComponent,
     MessageComponent,
-    MystyleDirective
+    MystyleDirective,
+    TodoComponent
   ],
   imports: [
     BrowserModule,

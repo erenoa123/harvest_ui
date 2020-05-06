@@ -1,0 +1,20 @@
+<div class="container">
+<table>
+    <tr>
+        <th>nam</th>
+        <th>content</th>
+        <th>tantouperson</th>
+        <th>kihyouperson</th>
+        <th>draftdate</th>
+        <th>flg</th>
+    </tr>
+    <tr *ngFor="let item of getContent()">
+        <td>{{item.nam}}</td>
+        <td>{{item.todoContent}}</td>
+        <td>{{item.tantouPerson}}</td>
+        <td>{{item.kihyouPerson}}</td>
+        <td>{{item.draftDate}}</td>
+        <td>{{item.flg}}</td>
+    </tr>
+</table>
+</div>
