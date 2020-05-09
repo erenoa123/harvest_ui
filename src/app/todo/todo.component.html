@@ -1,5 +1,6 @@
 <div class="container">
 <p>{{message}}</p>
+<h3>登録フォーム</h3>
 <form [formGroup]="inputTodo" (ngSubmit) = "onSubmit()">
     <table>
         <tr><th>やりたいこと</th></tr>
@@ -21,6 +22,7 @@
         <input type="submit" value="click">
         </table>
 </form>
+<h3>更新フォーム</h3>
 <form [formGroup]="inputTodo" (ngSubmit) = "onSubmitUpdate()">
     <table>
         <tr><th>項番</th></tr>
@@ -44,6 +46,7 @@
         <input type="submit" value="click">
         </table>
 </form>
+<h3>削除フォーム</h3>
 <form [formGroup]="inputTodo" (ngSubmit) = "onSubmitDelete()">
     <table>
         <tr><th>項番</th></tr>
@@ -51,6 +54,7 @@
         <input type="submit" value="click">
     </table>
 </form>
+<h3>一覧表示</h3>
 <table>
     <tr>
         <th>nam</th>
