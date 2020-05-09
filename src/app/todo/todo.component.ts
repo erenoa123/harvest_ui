@@ -36,8 +36,20 @@ private shareTodo:ShareTodo;
     this.inputTodo[0];
     this.message = JSON.stringify(result);
   this.todoService.PostTodo(this.message);
+  }
 
-    
+  onSubmitUpdate(){
+    let result = this.inputTodo.value;
+    this.inputTodo[0];
+    this.message = JSON.stringify(result);
+  this.todoService.UpdateTodo(this.message);
+  }
+
+  onSubmitDelete(){
+    let result = this.inputTodo.value;
+    this.inputTodo[0];
+    this.message = JSON.stringify(result);
+  this.todoService.DeleteTodo(this.message);
   }
 
 }

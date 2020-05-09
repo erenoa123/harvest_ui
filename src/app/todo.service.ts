@@ -47,4 +47,22 @@ private shareTodo:ShareTodo[] =[];
     });
   }
 
+  UpdateTodo(input:string){
+    this.client.post('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/update',input,httpOptions).subscribe((result:ShareTodo)=>{
+      this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
+      .subscribe((result:ShareTodo[])=>{
+        this.shareTodo = result;
+      });
+    });
+  }
+
+  DeleteTodo(input:string){
+    this.client.post('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/delete',input,httpOptions).subscribe((result:ShareTodo)=>{
+      this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
+      .subscribe((result:ShareTodo[])=>{
+        this.shareTodo = result;
+      });
+    });
+  }
+
 }
