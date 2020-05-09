@@ -1,4 +1,26 @@
 <div class="container">
+<p>{{message}}</p>
+<form [formGroup]="inputTodo" (ngSubmit) = "onSubmit()">
+    <table>
+        <tr><th>やりたいこと</th></tr>
+        <td><input type="text" formControlName="todoContent"></td>
+        <tr><th>担当者</th></tr>
+        <td><input type="text" formControlName="tantouPerson"></td>
+        <tr><th>起票者</th></tr>
+        <td><input type="text" formControlName="kihyouPerson"></td>
+        <tr><th>対応日</th></tr>
+        <td><input type="date" formControlName="draftDate"></td>
+        <tr><th>対応状況</th></tr>
+        <td>
+        <select formControlName="flg">
+            <option type="number" value="1">未対応</option>
+            <option type="number" value="2">対応中</option>
+            <option type="number" value="3">対応済</option>
+        </select>
+        </td>
+        <input type="submit" value="click">
+        </table>
+</form>
 <table>
     <tr>
         <th>nam</th>
