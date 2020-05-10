@@ -43,7 +43,7 @@ export class HelloComponent implements OnInit {
       ()=>{
         this.now = new Date();
         this.styleClass = this.styleClass == 'red' ? '' : 'red';
-        console.log(this.styleClass);
+        //console.log(this.styleClass);
       }, 1000);
 
       this.input='';
@@ -77,7 +77,7 @@ export class HelloComponent implements OnInit {
     this.message1 = ['compornent','栗原','last message'];
     this.input1='';
     
-    console.log(this.service.hello());
+    //console.log(this.service.hello());
     this.message2 = 'param:'+JSON.stringify(this.route.snapshot.queryParamMap);
 
     this.message3 = 'wait...';
@@ -140,7 +140,7 @@ export class HelloComponent implements OnInit {
       alert('テキストを入力してください');
       return;
     }
-    console.log(this.msgCompornent);
+    //console.log(this.msgCompornent);
     this.msgCompornent.push(this.input1);
     this.input1 = '';
   }

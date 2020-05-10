@@ -35,21 +35,21 @@ private shareTodo:ShareTodo;
     let result = this.inputTodo.value;
     this.inputTodo[0];
     this.message = JSON.stringify(result);
-  this.todoService.PostTodo(this.message);
+    this.todoService.PostTodo(this.message);
   }
 
   onSubmitUpdate(){
     let result = this.inputTodo.value;
     this.inputTodo[0];
     this.message = JSON.stringify(result);
-  this.todoService.UpdateTodo(this.message);
+    this.todoService.UpdateTodo(this.message);
   }
 
   onSubmitDelete(){
     let result = this.inputTodo.value;
     this.inputTodo[0];
     this.message = JSON.stringify(result);
-  this.todoService.DeleteTodo(this.message);
+    this.todoService.DeleteTodo(this.message);
   }
 
 }

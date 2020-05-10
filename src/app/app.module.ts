@@ -2,6 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import{FormsModule,ReactiveFormsModule} from '@angular/forms';
 import{RouterModule,Routes} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
@@ -12,12 +18,17 @@ import { MystyleDirective } from './mystyle.directive';
 import { MycheckService } from './mycheck.service';
 import { from } from 'rxjs';
 import {HttpClientModule} from '@angular/common/http';
-import { TodoComponent } from './todo/todo.component'
+import { TodoComponent } from './todo/todo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialComponent } from './material/material.component'
+
+
 
 const routes:Routes = [
   {path: 'hello', component: HelloComponent},
   {path: 'msg/:id', component: MessageComponent},
-  {path: 'todo', component: TodoComponent}
+  {path: 'todo', component: TodoComponent},
+  {path: 'material', component: MaterialComponent}
 ]
 
 @NgModule({
@@ -28,7 +39,8 @@ const routes:Routes = [
     NavbarComponent,
     MessageComponent,
     MystyleDirective,
-    TodoComponent
+    TodoComponent,
+    MaterialComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +50,14 @@ const routes:Routes = [
       routes,
       {enableTracing: true}
     ),
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatSidenavModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent,SidebarComponent,NavbarComponent]

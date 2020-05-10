@@ -5,7 +5,7 @@
 h1 {
     font-size : 60pt;
     letter-spacing: -5pt;
-    color: lightblue;
+    color: rgb(123, 148, 156);
     position: absolute;
     top: -70pt;
     right: 0pt;
@@ -17,19 +17,72 @@ p {
 }
 
 nav {
-    color: white;
+    color: rgb(90, 90, 90);
     margin: 0px;
     padding: 2px 5px;
     font-size: 12px;
     font-weight: bold;
-    background-color: blueviolet;
+    background-color: rgb(174, 185, 175);
 }
 nav a{ text-decoration: none;}
-nav a:link{color:white;}
-nav a:visited{color:white;}
-nav a:hover {color: lightcyan;}
-nav a:active {color:lightcyan;}
+nav a:link{color:rgb(90, 90, 90);}
+nav a:visited{color:rgb(90, 90, 90);}
+nav a:hover {color: rgb(241, 236, 236);}
+nav a:active {color:rgb(90, 90, 90);}
 
 div.content {
     margin:10px;
 }
+
+div.sideMenu-h1 {
+    margin: 10px;
+}
+
+
+mat-toolbar {
+    margin: 0px;
+}
+
+mat-sidenav {
+    position: fixed;
+    color: rgb(235, 231, 227);
+    background-color: #343a40;
+    width: 200px;
+}
+
+mat-divider.side{
+    border-color: rgb(226, 216, 206);
+    border-width: 1px;
+    opacity: 0.1;
+}
+
+mat-accordion.side{
+    margin: 1px;
+   
+}
+mat-expansion-panel.side{
+    margin: 5px;
+}
+
+mat-expansion-panel-header{
+    position: relative;
+}
+
+
+
+
+img.logo {
+    border-radius: 50%;
+    width: 35px;
+}
+span.logo{
+    margin: 10px;
+    font-size: 20px;
+    color: linen;
+}
+span.name{
+    margin: 10px;
+    font-size: 15px;
+    color: linen;
+}
+
