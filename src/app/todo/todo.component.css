@@ -18,3 +18,28 @@ td{
     color: #363;
     background-color: #e9e9e9;
 }
+
+div.div-main{
+    display: flex;
+    justify-content: left;
+}
+
+mat-card-header.blue{
+    background-color: #2790f8d8;
+    border-radius: 3px;
+    margin-bottom: 5px;
+
+}
+mat-card.blue{
+    padding: 0px;
+    border-radius: 3px;
+    max-width: 200px;
+}
+mat-card-title.blue{
+    margin: 10px;
+    color: rgb(254, 254, 255);
+}
+mat-card-actions.blue{
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
