@@ -25,6 +25,18 @@
     </mat-expansion-panel>
   </mat-accordion>
 
+  <div (click)="showList()" class="div-my-accordion-heder">
+    <span class="span-center">DashBoard</span>
+  </div>
+  <div *ngIf="visible == false" class="div-my-accordion-contents">
+    <span class="span-center">DashBoard 1</span>
+  </div>
+  <div *ngIf="visible == false" class="div-my-accordion-contents">
+    <span class="span-center">DashBoard 2</span>
+  </div>
+  <div *ngIf="visible == false" class="div-my-accordion-contents">
+    <span class="span-center">DashBoard 3</span>
+  </div>
 </mat-sidenav>
 <mat-sidenav-content>
 
