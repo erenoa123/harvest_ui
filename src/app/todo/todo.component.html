@@ -57,14 +57,6 @@
         <input type="submit" value="click">
         </table>
 </form>
-<h3>削除フォーム</h3>
-<form [formGroup]="inputTodo" (ngSubmit) = "onSubmitDelete()">
-    <table>
-        <tr><th>項番</th></tr>
-        <td><input type="number" formControlName="nam"></td>
-        <input type="submit" value="click">
-    </table>
-</form>
 <h3>一覧表示</h3>
 <table>
     <tr>
@@ -86,15 +78,36 @@
 </table>
 
 <mat-accordion *ngFor="let item of getContent()">
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
+    <mat-expansion-panel class="{{getpanelColor(item.flg)}}">
+        <mat-expansion-panel-header class="right-aligned-header">
             <mat-panel-title>
                 {{item.tantouPerson}}
             </mat-panel-title>
             <mat-panel-description>
-                {{item.todoContent}}
+                <div>
+                    {{item.todoContent}}
+                </div>
             </mat-panel-description>
+            <div class="right">
+                {{item.draftDate}}
+            </div>
         </mat-expansion-panel-header>
+        <div>
+            内容：{{item.todoContent}}
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+            担当者：{{item.tantouPerson}}
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+            起票者：{{item.kihyouPerson}}
+        </div>
+        <mat-action-row>
+            <button mat-mini-fab class="edit"><mat-icon>edit</mat-icon></button>
+            <button mat-mini-fab class="delete" (click)="onSubmitDelete(item.nam)"><mat-icon>delete</mat-icon></button>
+            <button mat-raised-button (click)="openDialog()">Pick one</button>
+        </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>
 </div>

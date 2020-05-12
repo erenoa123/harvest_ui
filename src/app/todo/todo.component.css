@@ -43,3 +43,33 @@ mat-card-actions.blue{
     margin-left: 10px;
     margin-bottom: 0px;
 }
+div.right{
+    margin-right: 10px;
+}
+
+mat-expansion-panel.regist{
+    background-color: rgba(136, 237, 250, 0.5);
+}
+
+mat-expansion-panel.progress{
+    background-color: rgba(255, 255, 0, 0.5);
+}
+
+mat-expansion-panel.done{
+    background-color: rgba(63, 216, 63, 0.5);
+}
+
+mat-action-row{
+    margin: 0px;
+    padding: 5px;
+}
+
+button.edit{
+    background-color: rgb(252, 252, 162);
+    color: gray;
+}
+
+button.delete{
+    background-color: rgb(250, 179, 179);
+    color: gray;
+}

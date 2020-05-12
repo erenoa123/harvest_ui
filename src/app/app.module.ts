@@ -9,6 +9,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
@@ -43,6 +44,9 @@ const routes:Routes = [
     TodoComponent,
     MaterialComponent
   ],
+  entryComponents:[
+    TodoComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -59,7 +63,8 @@ const routes:Routes = [
     MatDividerModule,
     MatSidenavModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent,SidebarComponent,NavbarComponent]
