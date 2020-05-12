@@ -84,4 +84,17 @@
         <td>{{item.flg}}</td>
     </tr>
 </table>
+
+<mat-accordion *ngFor="let item of getContent()">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{item.tantouPerson}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{item.todoContent}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</mat-accordion>
 </div>
