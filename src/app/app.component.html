@@ -1,5 +1,5 @@
 <mat-sidenav-container class="example-container">
-<mat-sidenav mode="side" opened>
+<mat-sidenav #sidenav mode="side" opened>
   <div class="sideMenu-h1">
   <a href="/">
     <img src="assets/logo.png" alt="Harvest Logo" class="logo" />
@@ -42,7 +42,7 @@
 
   <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <a mat-icon-button routerLink="">
+    <a mat-icon-button routerLink="" (click)="sidenav.toggle()">
       <mat-icon>home</mat-icon>
     </a>
     <span style="flex: auto;"></span>
