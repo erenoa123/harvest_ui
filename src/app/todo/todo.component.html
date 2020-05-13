@@ -106,7 +106,7 @@
         <mat-action-row>
             <button mat-mini-fab class="edit"><mat-icon>edit</mat-icon></button>
             <button mat-mini-fab class="delete" (click)="onSubmitDelete(item.nam)"><mat-icon>delete</mat-icon></button>
-            <button mat-raised-button (click)="openDialog()">Pick one</button>
+            <button mat-raised-button (click)="openDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg)">Pick one</button>
         </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>

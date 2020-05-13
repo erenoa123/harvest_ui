@@ -3,8 +3,10 @@ import { TodoService } from '../todo.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import {ShareTodo} from '../model/sharetodo.model'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {TodoDialogComponent} from '../todo-dialog/todo-dialog.component';
+import { from } from 'rxjs';
 
-export interface DialogData1{
+export interface DialogTodoData{
   nam:any;
   todoContent:string;
   tantouPerson:string;
@@ -90,15 +92,15 @@ animal:string;
     return this.panelColor;
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+  openDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any): void {
+    const dialogRef = this.dialog.open(TodoDialogComponent, {
       width: '250px',
-      data: {name: this.name, animal: this.animal}
+      data: {nam: nam, todoContent: todoContent, tantouPerson: tantouPerson, kihyouPerson: kihyouPerson, draftDate: draftDate, flg: flg}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
+      console.log(JSON.stringify(result));
     });
   }
 
@@ -111,7 +113,7 @@ export class DialogOverviewExampleDialog {
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogTodoData) {}
 
   onNoClick(): void {
     this.dialogRef.close();

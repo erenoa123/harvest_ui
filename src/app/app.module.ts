@@ -10,6 +10,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
@@ -22,7 +23,8 @@ import { from } from 'rxjs';
 import {HttpClientModule} from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialComponent } from './material/material.component'
+import { MaterialComponent } from './material/material.component';
+import { TodoDialogComponent } from './todo-dialog/todo-dialog.component'
 
 
 
@@ -42,10 +44,11 @@ const routes:Routes = [
     MessageComponent,
     MystyleDirective,
     TodoComponent,
-    MaterialComponent
+    MaterialComponent,
+    TodoDialogComponent
   ],
   entryComponents:[
-    TodoComponent
+    TodoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ const routes:Routes = [
     MatSidenavModule,
     MatExpansionModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent,SidebarComponent,NavbarComponent]
