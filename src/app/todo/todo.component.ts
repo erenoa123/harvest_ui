@@ -93,30 +93,15 @@ animal:string;
   }
 
   openDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any): void {
-    const dialogRef = this.dialog.open(TodoDialogComponent, {
-      width: '250px',
+    const dialogRef = this.dialog.open(TodoDialogComponent, {  
       data: {nam: nam, todoContent: todoContent, tantouPerson: tantouPerson, kihyouPerson: kihyouPerson, draftDate: draftDate, flg: flg}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      console.log(JSON.stringify(result));
+  
     });
   }
 
 }
-@Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: 'dialog-overview-example-dialog.html',
-})
-export class DialogOverviewExampleDialog {
 
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogTodoData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-}
