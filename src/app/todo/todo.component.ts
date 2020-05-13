@@ -94,6 +94,7 @@ animal:string;
 
   openDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any): void {
     const dialogRef = this.dialog.open(TodoDialogComponent, {  
+      width:'80%',
       data: {nam: nam, todoContent: todoContent, tantouPerson: tantouPerson, kihyouPerson: kihyouPerson, draftDate: draftDate, flg: flg}
     });
 

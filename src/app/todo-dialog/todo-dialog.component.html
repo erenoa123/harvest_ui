@@ -4,18 +4,22 @@
     <mat-label>やりたいこと</mat-label>
     <textarea matInput [(ngModel)]="data.todoContent"></textarea>
   </mat-form-field>
+  <br>
   <mat-form-field appearance="fill"> 
     <mat-label>担当者</mat-label>
     <input matInput [(ngModel)]="data.tantouPerson">
   </mat-form-field>
+  <br>
   <mat-form-field appearance="fill">
     <mat-label>起票者</mat-label>
     <input matInput [(ngModel)]="data.kihyouPerson">
   </mat-form-field>
+  <br>
   <mat-form-field appearance="fill">
     <mat-label>起票日</mat-label>
     <input matInput type="date" [(ngModel)]="data.draftDate">
   </mat-form-field>
+  <br>
   <mat-form-field appearance="fill">
     <mat-label>対応状況</mat-label>
     <mat-select [(value)]="data.flg" >
