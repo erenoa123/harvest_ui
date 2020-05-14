@@ -1,7 +1,6 @@
 .container{
-    padding: 20px;
+    padding: 0px;
     margin: 10px;
-    border: 1px solid red;
 }
 
 th{
@@ -72,4 +71,12 @@ button.edit{
 button.delete{
     background-color: rgb(250, 179, 179);
     color: gray;
+}
+button.submit{
+    background-color: rgb(149, 218, 250);
+    color: gray;
+    position: fixed;
+    opacity: 0.9;
+    bottom: 5%;
+    right: 1%;
 }

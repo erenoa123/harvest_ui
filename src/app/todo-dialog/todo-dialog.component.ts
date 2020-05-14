@@ -1,6 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { TodoService } from '../todo.service';
+import { Title } from '@angular/platform-browser';
 
 
 export interface DialogTodoData{
@@ -10,6 +11,7 @@ export interface DialogTodoData{
   kihyouPerson:string;
   draftDate:Date;
   flg:any;
+  title:string;
 }
 @Component({
   selector: 'app-todo-dialog',
@@ -18,8 +20,15 @@ export interface DialogTodoData{
 })
 export class TodoDialogComponent {
 message:string;
+formChanger:boolean = false;
   constructor(public dialogRef: MatDialogRef<TodoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogTodoData,private todoService:TodoService) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogTodoData,private todoService:TodoService ) { }
+
+  ngOnInit(){
+    if(this.data.title == '削除フォーム'){
+      this.formChanger = true;
+    }
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -30,5 +39,12 @@ message:string;
     this.message = JSON.stringify(result);
     this.todoService.UpdateTodo(this.message);
   }
+
+  onSubmitDelete(){
+    let result = this.data;
+    this.message = JSON.stringify(result);
+    this.todoService.DeleteTodo(this.message);
+  }
+
 
 }

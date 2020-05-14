@@ -1,38 +1,4 @@
 <div class="container">
-<p>{{message}}</p>
-
-<div class="div-main">
-<mat-card class="blue">
-    <mat-card-header class="blue">
-        <mat-card-title class="blue">登録フォーム</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-    <form [formGroup]="inputTodo" (ngSubmit) = "onSubmit()">
-        <table>
-            <tr><th>やりたいこと</th></tr>
-            <td><input type="text" formControlName="todoContent"></td>
-            <tr><th>担当者</th></tr>
-            <td><input type="text" formControlName="tantouPerson"></td>
-            <tr><th>起票者</th></tr>
-            <td><input type="text" formControlName="kihyouPerson"></td>
-            <tr><th>対応日</th></tr>
-            <td><input type="date" formControlName="draftDate"></td>
-            <tr><th>対応状況</th></tr>
-            <td>
-            <select formControlName="flg">
-                <option type="number" value="1">未対応</option>
-                <option type="number" value="2">対応中</option>
-                <option type="number" value="3">対応済</option>
-            </select>
-            </td>
-            </table>
-            <mat-card-actions class="blue">
-                <button mat-raised-button color="primary" type="submit">click</button>
-            </mat-card-actions>
-    </form>
-    </mat-card-content>
-</mat-card>
-</div>
 <mat-accordion *ngFor="let item of getContent()">
     <mat-expansion-panel class="{{getpanelColor(item.flg)}}">
         <mat-expansion-panel-header class="right-aligned-header">
@@ -60,9 +26,10 @@
             起票者：{{item.kihyouPerson}}
         </div>
         <mat-action-row>
-            <button mat-mini-fab class="edit" (click)="openDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg)"><mat-icon>edit</mat-icon></button>
-            <button mat-mini-fab class="delete" (click)="onSubmitDelete(item.nam)"><mat-icon>delete</mat-icon></button>
+            <button mat-mini-fab class="edit" (click)="openEditDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg)"><mat-icon>edit</mat-icon></button>
+            <button mat-mini-fab class="delete" (click)="openDeleteDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg)"><mat-icon>delete</mat-icon></button>
         </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>
 </div>
+<button mat-fab class="submit" (click)="onSubmitDialog()"><mat-icon>add</mat-icon></button>

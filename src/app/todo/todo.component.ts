@@ -28,10 +28,18 @@ export interface DialogData{
 export class TodoComponent implements OnInit {
 message:string;
 inputTodo:FormGroup;
-private shareTodo:ShareTodo;
 panelColor:string;
 name:string;
 animal:string;
+public shareTodo: DialogTodoData;
+
+nam:any;
+todoContent:string;
+tantouPerson:string;
+kihyouPerson:string;
+draftDate:Date;
+flg:any;
+
   constructor(private todoService:TodoService,public dialog: MatDialog) { }
 
   ngOnInit(){
@@ -44,9 +52,9 @@ animal:string;
       draftDate: new FormControl(''),
       flg: new FormControl(0)
     })
-  }
+ }
 
-  getContent(){
+ getContent(){
     return this.todoService.contentTodo;
   }
 
@@ -92,10 +100,18 @@ animal:string;
     return this.panelColor;
   }
 
-  openDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any): void {
+  openEditDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any): void {
     const dialogRef = this.dialog.open(TodoDialogComponent, {  
       width:'80%',
-      data: {nam: nam, todoContent: todoContent, tantouPerson: tantouPerson, kihyouPerson: kihyouPerson, draftDate: draftDate, flg: flg}
+      data: {
+        nam: nam,
+        todoContent: todoContent,
+        tantouPerson: tantouPerson, 
+        kihyouPerson: kihyouPerson, 
+        draftDate: draftDate, 
+        flg: flg,
+        title:'更新フォーム'
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -103,6 +119,48 @@ animal:string;
   
     });
   }
+
+  openDeleteDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any): void {
+    const dialogRef = this.dialog.open(TodoDialogComponent, {  
+      width:'80%',
+      data: {
+        nam: nam,
+        todoContent: todoContent,
+        tantouPerson: tantouPerson, 
+        kihyouPerson: kihyouPerson, 
+        draftDate: draftDate, 
+        flg: flg,
+        title:'削除フォーム'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+  
+    });
+  }
+
+  onSubmitDialog():void{
+    const dialogRef = this.dialog.open(TodoDialogComponent, { 
+      width:'80%',
+      data:{
+        nam: this.nam, 
+        todoContent: this.todoContent, 
+        tantouPerson: this.tantouPerson, 
+        kihyouPerson: this.kihyouPerson, 
+        draftDate: this.draftDate, 
+        flg: this.flg,
+        title:'登録フォーム'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+  
+    });
+
+  }
+
 
 }
 
