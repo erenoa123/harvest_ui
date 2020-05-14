@@ -80,3 +80,26 @@ button.submit{
     bottom: 5%;
     right: 1%;
 }
+button.mainSubmit{
+    background-color: rgb(149, 218, 250);
+    color: rgb(99, 97, 97);
+    margin-bottom: 3pt;
+    margin-right: 5pt;
+    width: 10%;
+}
+button.sortRegist{
+    background-color: rgba(136, 237, 250, 0.5);
+    margin-right: 5pt;
+    margin-bottom: 3pt;
+}
+button.sortProgress{
+    background-color: rgba(255, 255, 0, 0.5);
+    margin-right: 5pt;
+    margin-bottom: 3pt;
+}
+
+button.sortDone{
+    background-color: rgba(63, 216, 63, 0.5);
+    margin-right: 5pt;
+    margin-bottom: 3pt;
+}

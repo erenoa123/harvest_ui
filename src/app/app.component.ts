@@ -7,7 +7,7 @@ import {Router, NavigationStart} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-app';
+  title = 'Harvest Todo Application';
   message = '';
   visible:boolean;
 

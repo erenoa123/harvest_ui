@@ -11,22 +11,11 @@
   </div>
   <mat-divider class="side"></mat-divider>
 
-  <mat-accordion class="side">
-    <mat-expansion-panel class="side">
-      <mat-expansion-panel-header >
-        DashBoard
-      </mat-expansion-panel-header>
-      <div class="panel">
-      <button mat-button>DashBord1</button>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-
   <div (click)="showList()" class="div-my-accordion-heder">
-    <span class="span-center">DashBoard</span>
+    <span class="span-center">Todo</span>
   </div>
   <div *ngIf="visible == false" class="div-my-accordion-contents">
-    <span class="span-center">DashBoard 1</span>
+    <span class="span-center">Allview</span>
   </div>
   <div *ngIf="visible == false" class="div-my-accordion-contents">
     <span class="span-center">DashBoard 2</span>
@@ -39,24 +28,19 @@
 
   <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <a mat-icon-button routerLink="" (click)="sidenav.toggle()">
-      <mat-icon>home</mat-icon>
-    </a>
-    <span style="flex: auto;"></span>
-    <span>custom toolber</span>
-    <span style="flex: auto;"></span>
-    <a mat-icon-button>
+    <a mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </a>
+    <span style="flex: auto;"></span>
+    <span>{{title}}</span>
+    <span style="flex: auto;"></span>
+
   </mat-toolbar-row>
 </mat-toolbar>
 <nav>
   <div>
     <a routerLink="">Home</a>|
-    <a [routerLink]="['hello']" [queryParams]="{id:123,name:'taro'}">Hello</a>|
-    <a [routerLink]="['msg','123']">Message</a>|
     <a [routerLink]="['todo']">Todo</a>|
-    <a [routerLink]="['material']">Material</a>|
     <a href="https://harvestsharet0d0.herokuapp.com/">旧ハーベスト</a>
   </div>
 </nav>

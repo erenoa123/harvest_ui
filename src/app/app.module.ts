@@ -31,6 +31,7 @@ import { TodoDialogComponent } from './todo-dialog/todo-dialog.component'
 
 
 const routes:Routes = [
+  {path: '', component: TodoComponent},
   {path: 'hello', component: HelloComponent},
   {path: 'msg/:id', component: MessageComponent},
   {path: 'todo', component: TodoComponent},

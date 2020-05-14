@@ -1,4 +1,10 @@
 <div class="container">
+<button mat-raised-button class="mainSubmit" (click)="onSubmitDialog()"><mat-icon>add</mat-icon>作成</button>
+<button mat-mini-fab class="sortRegist"></button>
+<button mat-mini-fab class="sortProgress"></button>
+<button mat-mini-fab class="sortDone"></button>
+
+
 <mat-accordion *ngFor="let item of getContent()">
     <mat-expansion-panel class="{{getpanelColor(item.flg)}}">
         <mat-expansion-panel-header class="right-aligned-header">
