@@ -85,7 +85,9 @@ button.mainSubmit{
     color: rgb(99, 97, 97);
     margin-bottom: 3pt;
     margin-right: 5pt;
-    width: 10%;
+    width: 8%;
+    padding: 0px;
+    text-align: left;
 }
 button.sortRegist{
     background-color: rgba(136, 237, 250, 0.5);
@@ -102,4 +104,21 @@ button.sortDone{
     background-color: rgba(63, 216, 63, 0.5);
     margin-right: 5pt;
     margin-bottom: 3pt;
+}
+
+button.sortAll{
+    background-color: rgba(96, 117, 175, 0.5);
+    margin-right: 5pt;
+    margin-bottom: 3pt;
+}
+
+mat-icon.add{
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 0px;
+}
+
+mat-icon.fill{
+    color: grey;
+
 }

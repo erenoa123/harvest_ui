@@ -29,9 +29,12 @@ export class TodoComponent implements OnInit {
 message:string;
 inputTodo:FormGroup;
 panelColor:string;
-name:string;
-animal:string;
-public shareTodo: DialogTodoData;
+tempTodoService:ShareTodo[] = [];
+registTodoService:ShareTodo[] = [];
+progressTodoService:ShareTodo[] = [];
+doneTodoService:ShareTodo[] = [];
+togle:string = 'all';
+flgInit:boolean = true;
 
 nam:any;
 todoContent:string;
@@ -51,33 +54,62 @@ flg:any;
       kihyouPerson: new FormControl(''),
       draftDate: new FormControl(''),
       flg: new FormControl(0)
-    })
+    });
+    // this.tempTodoService = this.todoService.contentTodo;
+ }
+
+ sortInit(){
+  console.log("called");
+  console.log(this.todoService.contentTodo);
+  let i = 0;
+  while(i < this.todoService.contentTodo.length){
+    let temp = this.todoService.contentTodo[i];
+    console.log(temp);
+    switch(temp.flg){
+      case 1:
+        this.registTodoService.push(temp);
+      break;    
+      case 2:
+        this.progressTodoService.push(temp);
+      break;
+      case 3:
+        this.doneTodoService.push(temp);
+      break;
+      default:
+      break;
+     }
+      i++;
+   }
+ }
+ sortTogleChange(tg:string){
+   if(this.flgInit){
+     this.sortInit();
+     this.flgInit=false;
+   }
+   this.togle = tg;
  }
 
  getContent(){
     return this.todoService.contentTodo;
   }
 
-  onSubmit(){
-    let result = this.inputTodo.value;
-    this.inputTodo[0];
-    this.message = JSON.stringify(result);
-    this.todoService.PostTodo(this.message);
-  }
+  sortChange(swList:string){
 
-  onSubmitUpdate(){
-    let result = this.inputTodo.value;
-    this.inputTodo[0];
-    this.message = JSON.stringify(result);
-    this.todoService.UpdateTodo(this.message);
-  }
-
-  onSubmitDelete(nam:any){
-    let result;
-    this.inputTodo.value.nam = nam;
-    result = this.inputTodo.value;
-    this.message = JSON.stringify(result);
-    this.todoService.DeleteTodo(this.message);
+     switch(swList){
+      case "all":
+        return this.todoService.contentTodo;
+      case "regist":
+        return this.registTodoService;
+        break;
+      case "progress":
+        return this.progressTodoService;
+        break;
+      case "done":
+        return this.doneTodoService;
+        break;
+      default:
+        break;
+    }
   }
 
   getpanelColor(flg:any){
