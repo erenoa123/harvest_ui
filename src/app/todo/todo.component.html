@@ -1,4 +1,9 @@
 <div class="container">
+<div>
+    <p>未対応：{{cntRegist}}</p>
+    <p>対応中：{{cntProgress}}</p>
+    <p>対応済：{{cntDone}}</p>
+</div>
 <button mat-raised-button class="mainSubmit" (click)="onSubmitDialog()">
     <mat-icon class="add">add</mat-icon>
     <span class="add">作成</span>
@@ -9,8 +14,8 @@
 <button mat-mini-fab class="sortAll" (click)="sortTogleChange('all')"><mat-icon class="fill">loop</mat-icon></button>
 
 
-<mat-accordion *ngFor="let item of sortChange(togle)">
-    <mat-expansion-panel class="{{getpanelColor(item.flg)}}">
+<mat-accordion *ngFor="let item of getContent()">
+    <mat-expansion-panel class="{{getpanelColor(item.flg)}}" *ngIf="sortChangeIf(item.flg)">
         <mat-expansion-panel-header class="right-aligned-header">
             <mat-panel-title>
                 {{item.tantouPerson}}

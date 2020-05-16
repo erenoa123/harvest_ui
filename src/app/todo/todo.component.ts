@@ -29,12 +29,14 @@ export class TodoComponent implements OnInit {
 message:string;
 inputTodo:FormGroup;
 panelColor:string;
-tempTodoService:ShareTodo[] = [];
-registTodoService:ShareTodo[] = [];
-progressTodoService:ShareTodo[] = [];
-doneTodoService:ShareTodo[] = [];
-togle:string = 'all';
-flgInit:boolean = true;
+
+flgRegist:boolean = true;
+flgProgress:boolean = true;
+flgDone:boolean = true;
+
+cntRegist:any;
+cntProgress:any;
+cntDone:any;
 
 nam:any;
 todoContent:string;
@@ -58,59 +60,72 @@ flg:any;
     // this.tempTodoService = this.todoService.contentTodo;
  }
 
- sortInit(){
-  console.log("called");
-  console.log(this.todoService.contentTodo);
-  let i = 0;
-  while(i < this.todoService.contentTodo.length){
-    let temp = this.todoService.contentTodo[i];
-    console.log(temp);
-    switch(temp.flg){
-      case 1:
-        this.registTodoService.push(temp);
-      break;    
-      case 2:
-        this.progressTodoService.push(temp);
-      break;
-      case 3:
-        this.doneTodoService.push(temp);
-      break;
-      default:
-      break;
-     }
-      i++;
-   }
+ cntPanel(){
+   this.cntRegist = 0;
+   this.cntProgress = 0;
+   this.cntDone = 0;
+
+    for(let i = 0; i<this.todoService.contentTodo.length ;i++){
+      if(this.todoService.contentTodo[i].flg == 1){
+        this.cntRegist++;
+      }else if(this.todoService.contentTodo[i].flg == 2){
+        this.cntProgress++;
+      }else if(this.todoService.contentTodo[i].flg == 3){
+        this.cntDone++;
+      }
+    }
+
  }
+
  sortTogleChange(tg:string){
-   if(this.flgInit){
-     this.sortInit();
-     this.flgInit=false;
-   }
-   this.togle = tg;
+   switch(tg){
+    case "all":
+      this.flgRegist = true;
+      this.flgProgress = true;
+      this.flgDone = true;
+      break;
+    case "regist":
+      this.flgRegist = true;
+      this.flgProgress = false;
+      this.flgDone = false;
+      break;
+    case "progress":
+      this.flgRegist = false;
+      this.flgProgress = true;
+      this.flgDone = false;
+      break;
+    case "done":
+      this.flgRegist = false;
+      this.flgProgress = false;
+      this.flgDone = true;
+      break;
+    default:
+      break;
+  }
  }
 
  getContent(){
+    this.cntPanel();
     return this.todoService.contentTodo;
   }
 
-  sortChange(swList:string){
+  sortChangeIf(swList:any){
 
-     switch(swList){
-      case "all":
-        return this.todoService.contentTodo;
-      case "regist":
-        return this.registTodoService;
-        break;
-      case "progress":
-        return this.progressTodoService;
-        break;
-      case "done":
-        return this.doneTodoService;
-        break;
-      default:
-        break;
-    }
-  }
+    switch(swList){
+
+     case 1:
+       return this.flgRegist;
+       break;
+     case 2:
+       return this.flgProgress;
+       break;
+     case 3:
+       return this.flgDone;
+       break;
+     default:
+       break;
+   }
+ }
 
   getpanelColor(flg:any){
 
@@ -188,7 +203,7 @@ flg:any;
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-  
+   
     });
 
   }
