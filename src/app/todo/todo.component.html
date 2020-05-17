@@ -1,9 +1,8 @@
 <div class="container">
-<div>
-    <p>未対応：{{cntRegist}}</p>
-    <p>対応中：{{cntProgress}}</p>
-    <p>対応済：{{cntDone}}</p>
-</div>
+<mat-card>未対応：{{cntRegist}}</mat-card>
+<mat-card>対応中：{{cntProgress}}</mat-card>
+<mat-card>対応済：{{cntDone}}</mat-card>
+
 <button mat-raised-button class="mainSubmit" (click)="onSubmitDialog()">
     <mat-icon class="add">add</mat-icon>
     <span class="add">作成</span>

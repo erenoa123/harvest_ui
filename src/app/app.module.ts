@@ -13,6 +13,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
@@ -73,7 +74,8 @@ const routes:Routes = [
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent,SidebarComponent,NavbarComponent]
