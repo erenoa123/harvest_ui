@@ -34,10 +34,6 @@ flgRegist:boolean = true;
 flgProgress:boolean = true;
 flgDone:boolean = true;
 
-cntRegist:any;
-cntProgress:any;
-cntDone:any;
-
 nam:any;
 todoContent:string;
 tantouPerson:string;
@@ -45,7 +41,7 @@ kihyouPerson:string;
 draftDate:Date;
 flg:any;
 
-  constructor(private todoService:TodoService,public dialog: MatDialog) { }
+  constructor(public todoService:TodoService,public dialog: MatDialog) { }
 
   ngOnInit(){
     this.message = this.todoService.test();
@@ -57,24 +53,8 @@ flg:any;
       draftDate: new FormControl(''),
       flg: new FormControl(0)
     });
+    this.todoService.getTodo();
     // this.tempTodoService = this.todoService.contentTodo;
- }
-
- cntPanel(){
-   this.cntRegist = 0;
-   this.cntProgress = 0;
-   this.cntDone = 0;
-
-    for(let i = 0; i<this.todoService.contentTodo.length ;i++){
-      if(this.todoService.contentTodo[i].flg == 1){
-        this.cntRegist++;
-      }else if(this.todoService.contentTodo[i].flg == 2){
-        this.cntProgress++;
-      }else if(this.todoService.contentTodo[i].flg == 3){
-        this.cntDone++;
-      }
-    }
-
  }
 
  sortTogleChange(tg:string){
@@ -105,7 +85,6 @@ flg:any;
  }
 
  getContent(){
-    this.cntPanel();
     return this.todoService.contentTodo;
   }
 
@@ -183,7 +162,7 @@ flg:any;
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-  
+      
     });
   }
 
@@ -203,7 +182,6 @@ flg:any;
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-   
     });
 
   }

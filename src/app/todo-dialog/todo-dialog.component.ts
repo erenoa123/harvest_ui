@@ -36,7 +36,10 @@ formChanger:boolean = false;
 
   onSubmitUpdate(){
     let result = this.data;
+    delete result.title;    
     this.message = JSON.stringify(result);
+    console.log(this.message);
+    
     this.todoService.UpdateTodo(this.message);
   }
 

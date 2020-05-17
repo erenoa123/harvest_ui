@@ -17,7 +17,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MessageComponent } from './message/message.component';
 import { MystyleDirective } from './mystyle.directive';
@@ -43,7 +42,6 @@ const routes:Routes = [
   declarations: [
     AppComponent,
     HelloComponent,
-    SidebarComponent,
     NavbarComponent,
     MessageComponent,
     MystyleDirective,
@@ -78,7 +76,7 @@ const routes:Routes = [
     MatGridListModule
   ],
   providers: [],
-  bootstrap: [AppComponent,SidebarComponent,NavbarComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { 
 

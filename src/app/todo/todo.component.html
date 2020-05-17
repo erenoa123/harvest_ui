@@ -1,7 +1,22 @@
 <div class="container">
-<mat-card>未対応：{{cntRegist}}</mat-card>
-<mat-card>対応中：{{cntProgress}}</mat-card>
-<mat-card>対応済：{{cntDone}}</mat-card>
+<div class="cardBox">
+<mat-card class="regist">
+    <p class="title">未対応</p>
+    <mat-icon class="white">library_add</mat-icon>
+    <p class="cnt">{{todoService.cntRegist}}</p>
+</mat-card>
+<mat-card class="progress">
+    <p class="title">対応中</p>
+    <mat-icon class="white">library_books</mat-icon>
+    <p class="cnt">{{todoService.cntProgress}}</p>
+</mat-card>
+<mat-card class="done">
+    <p class="title">対応済</p>
+    <mat-icon class="white">library_add_check</mat-icon>
+    <p class="cnt">{{todoService.cntDone}}</p>
+</mat-card>
+</div>
+<mat-divider></mat-divider>
 
 <button mat-raised-button class="mainSubmit" (click)="onSubmitDialog()">
     <mat-icon class="add">add</mat-icon>
@@ -13,7 +28,7 @@
 <button mat-mini-fab class="sortAll" (click)="sortTogleChange('all')"><mat-icon class="fill">loop</mat-icon></button>
 
 
-<mat-accordion *ngFor="let item of getContent()">
+<mat-accordion *ngFor="let item of todoService.contentTodo">
     <mat-expansion-panel class="{{getpanelColor(item.flg)}}" *ngIf="sortChangeIf(item.flg)">
         <mat-expansion-panel-header class="right-aligned-header">
             <mat-panel-title>

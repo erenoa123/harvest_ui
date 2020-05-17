@@ -21,18 +21,46 @@ const httpOptions = {
 })
 export class TodoService {
 private shareTodo:ShareTodo[] =[];
+cntRegist:any = 0;
+cntProgress:any = 0;
+cntDone:any = 0;
 
   constructor(private client:HttpClient) {
-    this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
-    .subscribe((result:ShareTodo[])=>{
-      this.shareTodo = result;
-    });
+    // this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
+    // .subscribe((result:ShareTodo[])=>{
+    //   this.shareTodo = result;
+    // });
    }
 
   get contentTodo(){
     //console.log(JSON.stringify(this.shareTodo))
     return this.shareTodo;
-  } 
+  }
+
+  cntPanel(){
+    this.cntRegist = 0;
+    this.cntProgress = 0;
+    this.cntDone = 0;
+ 
+     for(let i = 0; i<this.contentTodo.length ;i++){
+       if(this.contentTodo[i].flg == 1){
+         this.cntRegist++;
+       }else if(this.contentTodo[i].flg == 2){
+         this.cntProgress++;
+       }else if(this.contentTodo[i].flg == 3){
+         this.cntDone++;
+       }
+     }
+ 
+  }
+
+  getTodo(){
+    this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
+    .subscribe((result:ShareTodo[])=>{
+      this.shareTodo = result;
+      this.cntPanel();
+    });
+  }
  
   test(){
     return 'ready complitely';
