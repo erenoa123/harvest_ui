@@ -71,6 +71,7 @@ cntDone:any = 0;
       this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
       .subscribe((result:ShareTodo[])=>{
         this.shareTodo = result;
+        this.cntPanel();
       });
     });
   }
@@ -80,6 +81,7 @@ cntDone:any = 0;
       this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
       .subscribe((result:ShareTodo[])=>{
         this.shareTodo = result;
+        this.cntPanel();
       });
     });
   }
@@ -89,6 +91,7 @@ cntDone:any = 0;
       this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
       .subscribe((result:ShareTodo[])=>{
         this.shareTodo = result;
+        this.cntPanel();
       });
     });
   }
