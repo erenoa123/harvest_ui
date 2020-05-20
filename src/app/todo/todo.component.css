@@ -126,24 +126,35 @@ mat-icon.fill{
 .cardBox{
     display: flex;
     margin-bottom: 2px;
+
 }
 
 .cardBox > mat-card{
-    margin: 3px;
-
-    padding: 3px;
-    max-width: 100px;
+    margin: 10px;
+    width: 25%;
+    height: 20%;
     display: flex;
-    justify-content: space-around;
-}   
+
+    justify-content: space-between;
+
+}
+
+mat-card > div{
+    text-align: left;
+
+    
+
+}
 
 mat-card.regist{
     background-color: rgba(136, 237, 250, 0.5);
     align-items: center; 
+    
+
 }
 
 mat-card.progress{
-    background-color: rgba(255, 255, 0, 0.5);
+    background-color: rgba(231, 231, 58, 0.5);
     align-items: center; 
 }
 
@@ -152,17 +163,41 @@ mat-card.done{
     align-items: center; 
 }
 
+mat-card.regist > .limg{
+    color:  rgb(136, 237, 250);
+}
+
+.limg:hover{
+    font-size: 100px;
+    height: max-content;
+    width: min-content;
+    padding: 0px;
+}
+
+mat-card.progress > .limg{
+    color:  rgb(231, 231, 58);
+}
+
+mat-card.done > .limg{
+    color:  rgb(63, 216, 63);
+}
+
 
 p.cnt{
-    font-size:20px; 
+    font-size:30px; 
+    font-weight: bold;
+    color:rgb(49, 49, 49);
 }
 p.title{
     font-size:15px; 
+    font-weight: bold;
+    color:rgb(172, 172, 172);
+    
 
-    color: rgb(36, 36, 36);
-    top: 2px;
-    left: 2px;
 }
-.white{
-    color: ivory;
+.limg{
+    font-size: 80px;
+    height: max-content;
+    width: min-content;
+    padding: 0px;
 }

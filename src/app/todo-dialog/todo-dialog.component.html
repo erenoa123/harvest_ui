@@ -1,6 +1,11 @@
 <h1 mat-dialog-title>{{data.title}}</h1>
 <div mat-dialog-content *ngIf="formChanger == false">
   <mat-form-field appearance="fill">
+    <mat-label>件名</mat-label>
+    <textarea matInput [(ngModel)]="data.todoTitle"></textarea>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
     <mat-label>やりたいこと</mat-label>
     <textarea matInput [(ngModel)]="data.todoContent"></textarea>
   </mat-form-field>
@@ -21,6 +26,16 @@
   </mat-form-field>
   <br>
   <mat-form-field appearance="fill">
+    <mat-label>対応予定日</mat-label>
+    <input matInput type="date" [(ngModel)]="data.responsePlanDate">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill" *ngIf="resDateFlg == true">
+    <mat-label>対応日</mat-label>
+    <input matInput type="date" [(ngModel)]="data.responseDate">
+  </mat-form-field>
+  <br *ngIf="resDateFlg == true">
+  <mat-form-field appearance="fill">
     <mat-label>対応状況</mat-label>
     <mat-select [(value)]="data.flg" >
       <mat-option value="1">未対応</mat-option>
@@ -31,6 +46,10 @@
 </div>
 
 <div mat-dialog-content *ngIf="formChanger == true">
+    <p>件目</p>
+    <P>{{data.todoTitle}}</P>
+    <mat-divider></mat-divider>
+  <br>
     <p>やりたいこと</p>
     <P>{{data.todoContent}}</P>
     <mat-divider></mat-divider>
@@ -45,6 +64,14 @@
   <br>
     <p>起票日</p>
     <p>{{data.draftDate}}</p>
+  <mat-divider></mat-divider>
+  <br>
+    <p>対応予定日</p>
+    <p>{{data.responsePlanDate}}</p>
+  <mat-divider></mat-divider>
+  <br>
+    <p>対応日</p>
+    <p>{{data.responseDate}}</p>
   <mat-divider></mat-divider>
 </div>
 

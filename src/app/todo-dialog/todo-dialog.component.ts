@@ -12,6 +12,10 @@ export interface DialogTodoData{
   draftDate:Date;
   flg:any;
   title:string;
+  todoTitle:string;
+  responseDate:Date;
+  responsePlanDate:Date;
+  category:string;
 }
 @Component({
   selector: 'app-todo-dialog',
@@ -21,12 +25,15 @@ export interface DialogTodoData{
 export class TodoDialogComponent {
 message:string;
 formChanger:boolean = false;
+resDateFlg:boolean = false;
   constructor(public dialogRef: MatDialogRef<TodoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogTodoData,private todoService:TodoService ) { }
 
   ngOnInit(){
     if(this.data.title == '削除フォーム'){
       this.formChanger = true;
+    }else if(this.data.title == '更新フォーム'){
+      this.resDateFlg = true;
     }
   }
 

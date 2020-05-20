@@ -8,6 +8,10 @@ class ShareTodo{
   kihyouPerson:string;
   draftDate:Date;
   flg:number;
+  todoTitle:string;
+  responseDate:Date;
+  responsePlanDate:Date;
+  category:string;
 }
 
 const httpOptions = {

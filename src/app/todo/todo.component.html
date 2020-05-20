@@ -1,19 +1,25 @@
 <div class="container">
 <div class="cardBox">
 <mat-card class="regist">
-    <p class="title">未対応</p>
-    <mat-icon class="white">library_add</mat-icon>
-    <p class="cnt">{{todoService.cntRegist}}</p>
+    <div>
+        <p class="cnt">{{todoService.cntRegist}}件</p>
+        <p class="title">やりたいこと数</p>
+    </div>
+    <mat-icon class="limg">library_add</mat-icon>
 </mat-card>
 <mat-card class="progress">
-    <p class="title">対応中</p>
-    <mat-icon class="white">library_books</mat-icon>
-    <p class="cnt">{{todoService.cntProgress}}</p>
+    <div>
+        <p class="cnt">{{todoService.cntProgress}}件</p>
+        <p class="title">対応中</p>
+    </div>   
+    <mat-icon class="limg">library_books</mat-icon>   
 </mat-card>
 <mat-card class="done">
-    <p class="title">対応済</p>
-    <mat-icon class="white">library_add_check</mat-icon>
-    <p class="cnt">{{todoService.cntDone}}</p>
+    <div>
+        <p class="cnt">{{todoService.cntDone}}件</p>
+        <p class="title">対応済</p>
+    </div>
+    <mat-icon class="limg">library_add_check</mat-icon>   
 </mat-card>
 </div>
 <mat-divider></mat-divider>
@@ -35,7 +41,10 @@
                 {{item.tantouPerson}}
             </mat-panel-title>
             <mat-panel-description>
-                <div>
+                <div *ngIf="item.todoTitle != null">
+                    {{item.todoTitle}}
+                </div>
+                <div *ngIf="item.todoTitle == null">
                     {{item.todoContent}}
                 </div>
             </mat-panel-description>
@@ -54,9 +63,17 @@
         <div>
             起票者：{{item.kihyouPerson}}
         </div>
+        <mat-divider></mat-divider>
+        <div>
+            対応予定日：{{item.responsePlanDate}}
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+            対応日：{{item.responseDate}}
+        </div>
         <mat-action-row>
-            <button mat-mini-fab class="edit" (click)="openEditDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg)"><mat-icon>edit</mat-icon></button>
-            <button mat-mini-fab class="delete" (click)="openDeleteDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg)"><mat-icon>delete</mat-icon></button>
+            <button mat-mini-fab class="edit" (click)="openEditDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg,item.todoTitle,item.responseDate,item.responsePlanDate)"><mat-icon>edit</mat-icon></button>
+            <button mat-mini-fab class="delete" (click)="openDeleteDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg,item.todoTitle,item.responseDate,item.responsePlanDate)"><mat-icon>delete</mat-icon></button>
         </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>

@@ -13,6 +13,11 @@ export interface DialogTodoData{
   kihyouPerson:string;
   draftDate:Date;
   flg:any;
+  title:string;
+  todoTitle:string;
+  responseDate:Date;
+  responsePlanDate:Date;
+  category:string;
 }
 
 export interface DialogData{
@@ -40,6 +45,11 @@ tantouPerson:string;
 kihyouPerson:string;
 draftDate:Date;
 flg:any;
+title:string;
+todoTitle:string;
+responseDate:Date;
+responsePlanDate:Date;
+category:string;
 
   constructor(public todoService:TodoService,public dialog: MatDialog) { }
 
@@ -126,7 +136,8 @@ flg:any;
     return this.panelColor;
   }
 
-  openEditDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any): void {
+  openEditDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any
+    ,todoTitle:string,responseDate:Date,responsePlanDate:Date): void {
     const dialogRef = this.dialog.open(TodoDialogComponent, {  
       width:'80%',
       data: {
@@ -136,7 +147,10 @@ flg:any;
         kihyouPerson: kihyouPerson, 
         draftDate: draftDate, 
         flg: flg,
-        title:'更新フォーム'
+        title:'更新フォーム',
+        todoTitle:todoTitle,
+        responseDate: responseDate,
+        responsePlanDate: responsePlanDate
       }
     });
 
@@ -146,7 +160,8 @@ flg:any;
     });
   }
 
-  openDeleteDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any): void {
+  openDeleteDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any
+    ,todoTitle:string,responseDate:Date,responsePlanDate:Date): void {
     const dialogRef = this.dialog.open(TodoDialogComponent, {  
       width:'80%',
       data: {
@@ -156,7 +171,10 @@ flg:any;
         kihyouPerson: kihyouPerson, 
         draftDate: draftDate, 
         flg: flg,
-        title:'削除フォーム'
+        title:'削除フォーム',
+        todoTitle:todoTitle,
+        responseDate: responseDate,
+        responsePlanDate: responsePlanDate
       }
     });
 
@@ -170,12 +188,6 @@ flg:any;
     const dialogRef = this.dialog.open(TodoDialogComponent, { 
       width:'80%',
       data:{
-        nam: this.nam, 
-        todoContent: this.todoContent, 
-        tantouPerson: this.tantouPerson, 
-        kihyouPerson: this.kihyouPerson, 
-        draftDate: this.draftDate, 
-        flg: this.flg,
         title:'登録フォーム'
       }
     });
