@@ -1,5 +1,5 @@
 <div class="container">
-<div class="cardBox">
+<div class="cardBox" *ngIf = "ismobile == false">
 <mat-card class="regist">
     <div>
         <p class="cnt">{{todoService.cntRegist}}件</p>
@@ -21,8 +21,8 @@
     </div>
     <mat-icon class="limg">library_add_check</mat-icon>   
 </mat-card>
-</div>
 <mat-divider></mat-divider>
+</div>
 
 <button mat-raised-button class="mainSubmit" (click)="onSubmitDialog()">
     <mat-icon class="add">add</mat-icon>

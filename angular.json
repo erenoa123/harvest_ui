@@ -27,7 +27,7 @@
               "src/custom-theme.scss",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/is_js/is.js"]
           },
           "configurations": {
             "production": {

@@ -6,6 +6,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {TodoDialogComponent} from '../todo-dialog/todo-dialog.component';
 import { from } from 'rxjs';
 
+declare var is:any;
+
 export interface DialogTodoData{
   nam:any;
   todoContent:string;
@@ -50,6 +52,8 @@ todoTitle:string;
 responseDate:Date;
 responsePlanDate:Date;
 category:string;
+
+ismobile:any = is.mobile();
 
   constructor(public todoService:TodoService,public dialog: MatDialog) { }
 

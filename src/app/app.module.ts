@@ -26,8 +26,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponent } from './material/material.component';
-import { TodoDialogComponent } from './todo-dialog/todo-dialog.component'
-
+import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
 
 
 const routes:Routes = [

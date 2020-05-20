@@ -185,11 +185,13 @@ mat-card.done > .limg{
 
 p.cnt{
     font-size:30px; 
+    
     font-weight: bold;
     color:rgb(49, 49, 49);
 }
 p.title{
     font-size:15px; 
+    
     font-weight: bold;
     color:rgb(172, 172, 172);
     
