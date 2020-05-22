@@ -14,11 +14,11 @@
   <div (click)="showList()" class="div-my-accordion-heder">
     <span class="span-center">Todo</span>
   </div>
-  <div *ngIf="visible == false" class="div-my-accordion-contents">
+  <div *ngIf="visible == false" class="div-my-accordion-contents" [routerLink]="['todo']">
     <span class="span-center">Allview</span>
   </div>
-  <div *ngIf="visible == false" class="div-my-accordion-contents">
-    <span class="span-center">DashBoard 2</span>
+  <div *ngIf="visible == false" class="div-my-accordion-contents" [routerLink]="['TodoDashBoard']">
+    <span class="span-center">TodoDashBoard</span>
   </div>
   <div *ngIf="visible == false" class="div-my-accordion-contents">
     <span class="span-center">DashBoard 3</span>

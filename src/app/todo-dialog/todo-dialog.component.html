@@ -43,6 +43,12 @@
       <mat-option value="3">対応済</mat-option>
   </mat-select>
   </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>カテゴリ</mat-label>
+    <input matInput [(ngModel)]="data.category">
+  </mat-form-field>
+
 </div>
 
 <div mat-dialog-content *ngIf="formChanger == true">

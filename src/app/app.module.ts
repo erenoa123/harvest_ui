@@ -27,6 +27,7 @@ import { TodoComponent } from './todo/todo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponent } from './material/material.component';
 import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
+import { TodoDashBoardComponent } from './todo-dash-board/todo-dash-board.component';
 
 
 const routes:Routes = [
@@ -34,7 +35,9 @@ const routes:Routes = [
   {path: 'hello', component: HelloComponent},
   {path: 'msg/:id', component: MessageComponent},
   {path: 'todo', component: TodoComponent},
-  {path: 'material', component: MaterialComponent}
+  {path: 'material', component: MaterialComponent},
+  {path: 'TodoDashBoard', component: TodoDashBoardComponent}
+
 ]
 
 @NgModule({
@@ -46,7 +49,8 @@ const routes:Routes = [
     MystyleDirective,
     TodoComponent,
     MaterialComponent,
-    TodoDialogComponent
+    TodoDialogComponent,
+    TodoDashBoardComponent
   ],
   entryComponents:[
     TodoDialogComponent

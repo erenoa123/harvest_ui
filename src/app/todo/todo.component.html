@@ -71,6 +71,10 @@
         <div>
             対応日：{{item.responseDate}}
         </div>
+        <mat-divider></mat-divider>
+        <div>
+            カテゴリ：{{item.category}}
+        </div>
         <mat-action-row>
             <button mat-mini-fab class="edit" (click)="openEditDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg,item.todoTitle,item.responseDate,item.responsePlanDate)"><mat-icon>edit</mat-icon></button>
             <button mat-mini-fab class="delete" (click)="openDeleteDialog(item.nam,item.todoContent,item.tantouPerson,item.kihyouPerson,item.draftDate,item.flg,item.todoTitle,item.responseDate,item.responsePlanDate)"><mat-icon>delete</mat-icon></button>
@@ -78,4 +82,4 @@
     </mat-expansion-panel>
 </mat-accordion>
 </div>
-<button mat-fab class="submit" (click)="onSubmitDialog()"><mat-icon>add</mat-icon></button>
+<button mat-fab class="submit" (click)="onSubmitDialog()" *ngIf = "ismobile == true"><mat-icon>add</mat-icon></button>
