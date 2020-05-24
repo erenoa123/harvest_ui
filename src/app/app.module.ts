@@ -29,7 +29,6 @@ import { MaterialComponent } from './material/material.component';
 import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
 import { TodoDashBoardComponent } from './todo-dash-board/todo-dash-board.component';
 
-
 const routes:Routes = [
   {path: '', component: TodoComponent},
   {path: 'hello', component: HelloComponent},

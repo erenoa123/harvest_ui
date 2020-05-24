@@ -141,9 +141,10 @@ mat-icon.fill{
 
 mat-card > div{
     text-align: left;
+}
 
-    
-
+mat-card:hover{
+    cursor : pointer;
 }
 
 mat-card.regist{

@@ -1,0 +1,6 @@
+div.canvasBox{
+    display: flex;
+}
+.canvas{
+    width:600px;
+}

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { Chart, ChartData, ChartOptions } from 'chart.js';
+
 class ShareTodo{
   nam:number;
   todoContent:string;
@@ -14,6 +16,8 @@ class ShareTodo{
   category:string;
 }
 
+
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -25,6 +29,7 @@ const httpOptions = {
 })
 export class TodoService {
 private shareTodo:ShareTodo[] =[];
+private chartData:ChartData;
 cntRegist:any = 0;
 cntProgress:any = 0;
 cntDone:any = 0;
@@ -37,8 +42,11 @@ cntDone:any = 0;
    }
 
   get contentTodo(){
-    //console.log(JSON.stringify(this.shareTodo))
     return this.shareTodo;
+  }
+
+  get contentChartData(){
+    return this.chartData;
   }
 
   cntPanel(){
@@ -97,6 +105,16 @@ cntDone:any = 0;
         this.shareTodo = result;
         this.cntPanel();
       });
+    });
+  }
+
+  getChartData(){
+    this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/dashboard')
+    .subscribe((result:ChartData)=>{
+      console.log("getChart");
+      
+      this.chartData = result;
+
     });
   }
 

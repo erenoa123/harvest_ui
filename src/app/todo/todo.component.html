@@ -1,20 +1,20 @@
 <div class="container">
 <div class="cardBox" *ngIf = "ismobile == false">
-<mat-card class="regist">
+<mat-card (click)="sortTogleChange('regist')" class="regist">
     <div>
         <p class="cnt">{{todoService.cntRegist}}件</p>
         <p class="title">やりたいこと数</p>
     </div>
     <mat-icon class="limg">library_add</mat-icon>
 </mat-card>
-<mat-card class="progress">
+<mat-card (click)="sortTogleChange('progress')" class="progress">
     <div>
         <p class="cnt">{{todoService.cntProgress}}件</p>
         <p class="title">対応中</p>
     </div>   
     <mat-icon class="limg">library_books</mat-icon>   
 </mat-card>
-<mat-card class="done">
+<mat-card (click)="sortTogleChange('done')" class="done">
     <div>
         <p class="cnt">{{todoService.cntDone}}件</p>
         <p class="title">対応済</p>
