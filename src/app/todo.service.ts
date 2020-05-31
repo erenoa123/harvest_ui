@@ -35,10 +35,6 @@ cntProgress:any = 0;
 cntDone:any = 0;
 
   constructor(private client:HttpClient) {
-    // this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
-    // .subscribe((result:ShareTodo[])=>{
-    //   this.shareTodo = result;
-    // });
    }
 
   get contentTodo(){
@@ -79,6 +75,9 @@ cntDone:any = 0;
   }
 
   PostTodo(input:string){
+    //バックエンド(API.POST)を実行する。
+    //POSTのsubscribeでバックエンド(API.GET)を実行する。
+    //GETのsubscribeでtodo一覧表示の更新を行う。
     this.client.post('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/post',input,httpOptions).subscribe((result:ShareTodo)=>{
       this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
       .subscribe((result:ShareTodo[])=>{
@@ -89,6 +88,9 @@ cntDone:any = 0;
   }
 
   UpdateTodo(input:string){
+    //バックエンド(API.POST)を実行する。
+    //POSTのsubscribeでバックエンド(API.GET)を実行する。
+    //GETのsubscribeでtodo一覧表示の更新を行う。
     this.client.post('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/update',input,httpOptions).subscribe((result:ShareTodo)=>{
       this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
       .subscribe((result:ShareTodo[])=>{
@@ -99,6 +101,9 @@ cntDone:any = 0;
   }
 
   DeleteTodo(input:string){
+    //バックエンド(API.POST)を実行する。
+    //POSTのsubscribeでバックエンド(API.GET)を実行する。
+    //GETのsubscribeでtodo一覧表示の更新を行う。
     this.client.post('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/delete',input,httpOptions).subscribe((result:ShareTodo)=>{
       this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/all')
       .subscribe((result:ShareTodo[])=>{
@@ -109,13 +114,8 @@ cntDone:any = 0;
   }
 
   getChartData(){
-    this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/dashboard')
-    .subscribe((result:ChartData)=>{
-      console.log("getChart");
-      
-      this.chartData = result;
-
-    });
+    //return バックエンド(API)を実行する
+    return this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/dashboard');
   }
 
 }
