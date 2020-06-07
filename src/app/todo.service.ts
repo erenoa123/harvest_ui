@@ -45,20 +45,21 @@ cntDone:any = 0;
     return this.chartData;
   }
 
+  //件数表示
   cntPanel(){
     this.cntRegist = 0;
     this.cntProgress = 0;
     this.cntDone = 0;
  
-     for(let i = 0; i<this.contentTodo.length ;i++){
-       if(this.contentTodo[i].flg == 1){
-         this.cntRegist++;
-       }else if(this.contentTodo[i].flg == 2){
-         this.cntProgress++;
-       }else if(this.contentTodo[i].flg == 3){
-         this.cntDone++;
-       }
-     }
+    for(let i = 0; i<this.contentTodo.length ;i++){
+      if(this.contentTodo[i].flg == 1){
+        this.cntRegist++;
+      }else if(this.contentTodo[i].flg == 2){
+        this.cntProgress++;
+      }else if(this.contentTodo[i].flg == 3){
+        this.cntDone++;
+      }
+    }
  
   }
 
@@ -116,6 +117,11 @@ cntDone:any = 0;
   getChartData(){
     //return バックエンド(API)を実行する
     return this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/dashboard');
+  }
+
+  getBarChartData(){
+    //return バックエンド(API)を実行する
+    return this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/barChart');
   }
 
 }

@@ -12,8 +12,15 @@ export class TodoDashBoardComponent implements OnInit {
   @ViewChild('canvas')
   ref: ElementRef;
 
+  @ViewChild('canvasBar')
+  refBar: ElementRef;
+
   @Input()
   data: ChartData;
+
+  @Input()
+  barData: ChartData;
+
   @Input()
   options: ChartOptions= {
     scales: {
@@ -26,17 +33,21 @@ export class TodoDashBoardComponent implements OnInit {
   };
 
   context: CanvasRenderingContext2D;
+
   chart: Chart;
+  barChart: Chart;
 
   constructor(private _elementRef:ElementRef,public todoService:TodoService) {}
 
   ngOnInit(){
     this.getChartData();
+    this.getBarChartData()
   }
 
   getChartData(){
     this.todoService.getChartData().subscribe((result:ChartData)=>{
       console.log("getChart");
+      console.log(result);
       
       this.data = result;
       // canvasを取得
@@ -44,6 +55,22 @@ export class TodoDashBoardComponent implements OnInit {
       this.chart = new Chart(this.context, {
         type: 'doughnut',     // とりあえず doughnutチャートを表示
         data: this.data,      // データをプロパティとして渡す
+        options: this.options // オプションをプロパティとして渡す
+      });
+    });  
+  }
+
+  getBarChartData(){
+    this.todoService.getBarChartData().subscribe((result:ChartData)=>{
+      console.log("getBarChart");
+      console.log(result);
+      
+      this.barData = result;
+      // canvasを取得
+      this.context = this.refBar.nativeElement.getContext('2d');
+      this.barChart = new Chart(this.context, {
+        type: 'bar',     // とりあえず barチャートを表示
+        data: this.barData,      // データをプロパティとして渡す
         options: this.options // オプションをプロパティとして渡す
       });
     });
