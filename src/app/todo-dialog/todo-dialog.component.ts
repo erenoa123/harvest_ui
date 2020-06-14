@@ -35,6 +35,9 @@ resDateFlg:boolean = false;
     }else if(this.data.title == '更新フォーム'){
       this.resDateFlg = true;
     }
+
+    //intをString化,`${}`は文字列に変数を格納する記法
+    this.data.flg = `${this.data.flg}`;
   }
 
   onNoClick(): void {

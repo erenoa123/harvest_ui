@@ -15,11 +15,17 @@ export class TodoDashBoardComponent implements OnInit {
   @ViewChild('canvasBar')
   refBar: ElementRef;
 
+  @ViewChild('canvasRadar')
+  refRadar: ElementRef;
+
   @Input()
   data: ChartData;
 
   @Input()
   barData: ChartData;
+
+  @Input()
+  radarData: ChartData;
 
   @Input()
   options: ChartOptions= {
@@ -36,12 +42,14 @@ export class TodoDashBoardComponent implements OnInit {
 
   chart: Chart;
   barChart: Chart;
+  radarChart: Chart;
 
   constructor(private _elementRef:ElementRef,public todoService:TodoService) {}
 
   ngOnInit(){
     this.getChartData();
-    this.getBarChartData()
+    this.getBarChartData();
+    this.getRaderChartData();
   }
 
   getChartData(){
@@ -77,6 +85,25 @@ export class TodoDashBoardComponent implements OnInit {
     
     
   }
+
+  getRaderChartData(){
+    this.todoService.getRadarChartData().subscribe((result:ChartData)=>{
+      console.log("getRadarChart");
+      console.log(result);
+      
+      this.radarData = result;
+      // canvasを取得
+      this.context = this.refRadar.nativeElement.getContext('2d');
+      this.radarChart = new Chart(this.context, {
+        type: 'radar',     // とりあえず barチャートを表示
+        data: this.radarData,      // データをプロパティとして渡す
+        options: this.options // オプションをプロパティとして渡す
+      });
+    });
+    
+    
+  }
+
 
 
 

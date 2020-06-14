@@ -141,7 +141,7 @@ ismobile:any = is.mobile();
   }
 
   openEditDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any
-    ,todoTitle:string,responseDate:Date,responsePlanDate:Date): void {
+    ,todoTitle:string,responseDate:Date,responsePlanDate:Date,category:string): void {
     const dialogRef = this.dialog.open(TodoDialogComponent, {  
       width:'80%',
       data: {
@@ -154,7 +154,8 @@ ismobile:any = is.mobile();
         title:'更新フォーム',
         todoTitle:todoTitle,
         responseDate: responseDate,
-        responsePlanDate: responsePlanDate
+        responsePlanDate: responsePlanDate,
+        category:category
       }
     });
 
@@ -165,7 +166,7 @@ ismobile:any = is.mobile();
   }
 
   openDeleteDialog(nam:any,todoContent:string,tantouPerson:string,kihyouPerson:string,draftDate:Date,flg:any
-    ,todoTitle:string,responseDate:Date,responsePlanDate:Date): void {
+    ,todoTitle:string,responseDate:Date,responsePlanDate:Date,category:String): void {
     const dialogRef = this.dialog.open(TodoDialogComponent, {  
       width:'80%',
       data: {
@@ -178,7 +179,8 @@ ismobile:any = is.mobile();
         title:'削除フォーム',
         todoTitle:todoTitle,
         responseDate: responseDate,
-        responsePlanDate: responsePlanDate
+        responsePlanDate: responsePlanDate,
+        category: category
       }
     });
 

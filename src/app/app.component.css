@@ -99,6 +99,9 @@ img.logo {
     border-radius: 50%;
     width: 35px;
 }
+img.titlelogo {
+    width: 100%
+}
 span.logo{
     margin: 10px;
     font-size: 20px;
