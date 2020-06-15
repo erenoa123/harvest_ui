@@ -126,7 +126,7 @@ cntDone:any = 0;
 
   getRadarChartData(){
     //return バックエンド(API)を実行する
-    return this.client.get('http://localhost:8080/Rest/sharetodo/raderChart');
+    return this.client.get('https://harvestsharet0d0.herokuapp.com/Rest/sharetodo/raderChart');
   }
 
 }
